@@ -20,7 +20,7 @@ class Rabi():
                             routing_key=self.q,
                             body=context)
 
-    def listen(self,q=None,call=None):
+    def listen_and_call(self,q=None,call=None):
         if q is None:
             q = self.q
         self.channel.basic_consume(queue=q, on_message_callback=call, auto_ack=True)

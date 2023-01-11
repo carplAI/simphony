@@ -17,7 +17,7 @@ def main():
     # channel.start_consuming()
 
     r = Rabi(q = "ex")
-    r.listen(call= callback)
+    r.listen_and_call(call= callback)
 
 if __name__ == '__main__':
     try:
