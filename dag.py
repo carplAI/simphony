@@ -17,6 +17,7 @@ class DAG():
             self.data = data
         # print(self.data)
         self._creation_status = True
+        self.root = self.data["root"]
         self.list_of_nodes = self.data["nodes"]
         self.list_of_links = self.data["links"]
         pprint(self.data)
@@ -80,5 +81,13 @@ class DAG():
     def get_link_info(self,data):
         for key in data['links'].keys():
             self.debugMessage("get_link_info", key)
+
+
+    def get_neighbors(self,vertex = None):
+        vertex = self.g.vs.find(name= self.root) if vertex is None else vertex
+        return self.g.neighborhood(vertices=vertex, order=1, mode='out',mindist = 1)
+
+    # def 
+
 
     
